@@ -1,0 +1,46 @@
+<! Autor: Jorge Arrieta ->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular CRC</title>
+</head>
+<body>
+ <h1>By: Jorge Arrieta</h1>   
+<div class="wrapper">
+        <div class="card-switch">
+            <label class="switch">
+               <input type="checkbox" class="toggle">
+               <span class="slider"></span>
+               <span class="card-side"></span>
+               <div class="flip-card__inner">
+                  <div class="flip-card__front">
+                     <div class="title">Calcula tu CRC aquí</div> 
+                     <form class="flip-card__form" action="">
+                        <input class="flip-card__input" id="mensaje" placeholder="Escribe tu mensaje en binario" type="text">
+                        <input class="flip-card__input" id="generador" placeholder="Escribe tu generador" type="text">
+                        <h2 id="resultadocrc"></h2>
+
+                        <button id="calcular" class="flip-card__btn">Calcular</button>
+                     </form>
+                  </div>
+                  <div class="flip-card__back">
+                     <div class="title">Convierte tu trama a transmitir aquí</div>
+                     <form class="flip-card__form" action="">
+                        <input class="flip-card__input" placeholder="Mensaje a transmitir" id="mensajet" type="text">
+                        <input class="flip-card__input" name="name" placeholder="Polinomio Generador" type="text" id="generadort">
+                        <h2 id="resultadomensaje"></h2>
+                        <h2 id="resultadogenerador"></h2>
+                        <button id="convertir" class="flip-card__btn">Convertir</button>
+                     </form>
+                  </div>
+               </div>
+            </label>
+        </div>   
+   </div>
+   <script src="calcular.js"></script>
+   <script src="convertir.js"></script>
+</body>
+</html>
