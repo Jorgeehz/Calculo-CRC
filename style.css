@@ -161,7 +161,7 @@ body{
   }
   .flip-card__back {
     padding: 20px;
-    height: 400px;
+    height: 480px;
     position: absolute;
     display: flex;
     flex-direction: column;
