@@ -8,7 +8,9 @@ document.getElementById('generador').addEventListener('input', function(event) {
 });
     const messageInput = document.getElementById('mensaje');
     const generatorInput = document.getElementById('generador');
+    const crcfound = document.getElementById('crcfound');
     const resultadoElement = document.getElementById('resultadocrc');
+    const hexadecimal = document.getElementById('hexadecimal');
 
     function crcDivision(message, generator) {
         message = message.split('');
@@ -29,20 +31,38 @@ document.getElementById('generador').addEventListener('input', function(event) {
         const crc = message.slice(- (genLength - 1)).join('');
         return crc;
     }
+    function binarioAHex(binario) {
 
+        let decimal = parseInt(binario, 2);
+        let hex = decimal.toString(16);
+        return hex.toUpperCase();
+    }
+    
+    
     document.getElementById('calcular').addEventListener('click', function(event) {
         event.preventDefault(); 
 
         const message = messageInput.value;
         const generator = generatorInput.value;
+        
+        
 
         if (message === "" || generator === "" ) {
             resultadoElement.innerHTML = "Por favor, ingrese valores válidos.";
             return;
         } 
         const crcResult = crcDivision(message, generator);     
-        resultadoElement.innerHTML = `Tu resultado es: ${message}${crcResult}`;
+        resultadoElement.innerHTML = `Mensaje Final: ${message}${crcResult}`;
+        crcfound.innerHTML = `Tu CRC es: ${crcResult}`;
+        const mensajecompleto = message + crcResult;
+        const hexresult = binarioAHex(mensajecompleto);
+        hexadecimal.innerHTML = `Hexadecimal: ${hexresult}`; 
 
         resultadocrc.style.display = 'block';
+        crcfound.style.display = 'block';
+        hexadecimal.style.display = 'block';
+
+
     });
-});
+    });
+
